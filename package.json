@@ -1,0 +1,78 @@
+{
+    "name": "iso-tile-converter",
+    "version": "0.1.0",
+    "description": "Convert square pixel-art tilemaps into isometric diamond floor-tile PNGs.",
+    "keywords": [
+        "isometric",
+        "tilemap",
+        "pixel-art",
+        "phaser",
+        "gamedev"
+    ],
+    "license": "MIT",
+    "type": "module",
+    "bin": {
+        "iso-tile-converter": "./bin/iso-tile-converter.mjs"
+    },
+    "main": "./bin/iso-tile-converter.mjs",
+    "exports": {
+        ".": "./bin/iso-tile-converter.mjs"
+    },
+    "files": [
+        "bin",
+        "ui",
+        "README.md",
+        "LICENSE"
+    ],
+    "scripts": {
+        "example": "node bin/iso-tile-converter.mjs --config examples/tilesets.config.json",
+        "example:cli": "node bin/iso-tile-converter.mjs \"examples/Floor tilemap.png\" --tile-size 16 --skip-transparent --manifest --out out/floorTilemap",
+        "ui": "electron ui/main.cjs",
+        "start": "electron ui/main.cjs",
+        "dist": "electron-builder --win portable",
+        "dist:dir": "electron-builder --win portable --dir"
+    },
+    "dependencies": {
+        "@napi-rs/canvas": "^0.1.56"
+    },
+    "devDependencies": {
+        "electron": "^34.0.0",
+        "electron-builder": "^25.0.0"
+    },
+    "engines": {
+        "node": ">=18"
+    },
+    "build": {
+        "appId": "com.tajrizek.iso-tile-converter",
+        "productName": "iso-tile-converter",
+        "copyright": "Copyright (c) ${author}",
+        "directories": {
+            "output": "dist"
+        },
+        "files": [
+            "bin/**/*",
+            "ui/**/*",
+            "package.json",
+            "LICENSE",
+            "README.md",
+            "!**/*.map",
+            "!**/{.DS_Store,Thumbs.db}"
+        ],
+        "asarUnpack": [
+            "node_modules/@napi-rs/canvas/**/*"
+        ],
+        "win": {
+            "target": [
+                {
+                    "target": "portable",
+                    "arch": ["x64"]
+                }
+            ],
+            "artifactName": "${productName}-${version}-portable.${ext}"
+        },
+        "portable": {
+            "artifactName": "${productName}-${version}-portable.${ext}"
+        },
+        "publish": null
+    }
+}

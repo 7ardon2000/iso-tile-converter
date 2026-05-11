@@ -1,0 +1,18 @@
+{
+    "diamond": { "width": 203, "height": 101, "canvasHeight": 125 },
+    "upscaleFactor": 8,
+    "registryPath": "out/iso-tilesets.gen.ts",
+    "tilesets": [
+        {
+            "name": "floorTilemap1",
+            "source": "Floor tilemap.png",
+            "tileSize": 16,
+            "cols": 8,
+            "rows": 4,
+            "outputDir": "out/floorTilemap1",
+            "textureKeyPrefix": "isoFloorTilemap1",
+            "skipTransparent": true,
+            "manifest": true
+        }
+    ]
+}

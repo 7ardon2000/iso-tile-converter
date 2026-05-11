@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: file:; script-src 'self'" />
+    <title>iso-tile-converter</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header>
+        <h1>iso-tile-converter</h1>
+        <p class="subtitle">Convert a square pixel-art tilemap into isometric diamond PNGs.</p>
+    </header>
+
+    <main>
+        <section class="card">
+            <h2>1. Source tilemap</h2>
+            <div class="row">
+                <button id="btn-pick-source" type="button">Choose PNG…</button>
+                <span id="source-path" class="path muted">No file selected</span>
+            </div>
+            <div id="source-info" class="info muted">—</div>
+        </section>
+
+        <section class="card">
+            <h2>2. Grid</h2>
+            <div class="grid-2">
+                <label>
+                    Tile size (px)
+                    <input id="tile-size" type="number" min="1" step="1" value="16" />
+                </label>
+                <label>
+                    Upscale factor
+                    <input id="upscale" type="number" min="1" step="1" value="8" />
+                </label>
+                <label>
+                    Columns <span class="hint">(auto)</span>
+                    <input id="cols" type="number" min="1" step="1" placeholder="auto" />
+                </label>
+                <label>
+                    Rows <span class="hint">(auto)</span>
+                    <input id="rows" type="number" min="1" step="1" placeholder="auto" />
+                </label>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>3. Output size preset</h2>
+            <label class="block">
+                Preset
+                <select id="preset"></select>
+            </label>
+            <div class="grid-3">
+                <label>
+                    Diamond width (px)
+                    <input id="diamond-w" type="number" min="2" step="1" />
+                </label>
+                <label>
+                    Diamond height (px)
+                    <input id="diamond-h" type="number" min="1" step="1" />
+                </label>
+                <label>
+                    Canvas height (px)
+                    <input id="canvas-h" type="number" min="1" step="1" />
+                </label>
+            </div>
+            <p id="preset-note" class="info muted">—</p>
+        </section>
+
+        <section class="card">
+            <h2>4. Options</h2>
+            <label class="checkbox">
+                <input id="skip-transparent" type="checkbox" checked />
+                Skip fully-transparent source tiles
+            </label>
+            <label class="checkbox">
+                <input id="emit-manifest" type="checkbox" />
+                Emit <code>manifest.json</code>
+            </label>
+            <label class="checkbox">
+                <input id="emit-registry" type="checkbox" />
+                Emit TypeScript registry (<code>iso-tilesets.gen.ts</code>) in the output folder
+            </label>
+
+            <div class="row" style="margin-top: 8px;">
+                <button id="btn-pick-output" type="button">Choose output folder…</button>
+                <span id="output-path" class="path muted">(auto: next to source)</span>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>5. Convert</h2>
+            <div class="row">
+                <button id="btn-convert" type="button" class="primary" disabled>Convert</button>
+                <button id="btn-open-output" type="button" disabled>Open output folder</button>
+            </div>
+            <div class="progress-wrap">
+                <progress id="progress" value="0" max="1"></progress>
+                <span id="progress-text" class="muted">Idle</span>
+            </div>
+            <pre id="log" class="log"></pre>
+        </section>
+    </main>
+
+    <script src="renderer.js"></script>
+</body>
+</html>
