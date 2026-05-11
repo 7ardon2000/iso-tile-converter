@@ -19,6 +19,7 @@ out/floorTilemap1/
 ├── ...
 └── tile_3_7.png
 ```
+<img width="724" height="365" alt="image" src="https://github.com/user-attachments/assets/0b1fbd72-563e-4152-8c83-74b33377e8e0" />
 
 Output dimensions, diamond shape, upscale factor, and (optional) bundler-friendly TypeScript registry are all configurable.
 
