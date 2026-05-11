@@ -8,7 +8,8 @@ Built for pixel-art workflows — the converter upscales source tiles with neare
 
 Given a source like this (8 × 4 grid of 16×16 tiles):
 
-![source tilemap, top-down view, 128x64](examples/Floor%20tilemap.png)
+<img width="192" height="128" alt="Paving tileset Village" src="https://github.com/user-attachments/assets/8378d870-6a41-4a47-812a-f99005a2cc60" />
+
 
 It produces one isometric diamond PNG per source tile:
 
