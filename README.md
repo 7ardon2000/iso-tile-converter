@@ -26,7 +26,7 @@ Output dimensions, diamond shape, upscale factor, and (optional) bundler-friendl
 
 ## Download
 
-Prebuilt portable Windows .exe (no install, just double-click) is published on the [Releases page](https://github.com/TajRizek/iso-tile-converter/releases). Pick the latest `iso-tile-converter-<version>-portable.exe`.
+Prebuilt portable Windows .exe (no install, just double-click) is published on the [Releases page](https://github.com/7ardon2000/iso-tile-converter/releases). Pick the latest `iso-tile-converter-<version>-portable.exe`.
 
 If you want the CLI or to hack on the code, install from source instead — see below.
 

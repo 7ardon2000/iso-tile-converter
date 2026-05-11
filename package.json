@@ -43,7 +43,7 @@
         "node": ">=18"
     },
     "build": {
-        "appId": "com.tajrizek.iso-tile-converter",
+        "appId": "com.7ardon2000.iso-tile-converter",
         "productName": "iso-tile-converter",
         "copyright": "Copyright (c) ${author}",
         "directories": {
